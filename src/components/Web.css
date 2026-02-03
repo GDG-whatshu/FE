@@ -1,0 +1,63 @@
+.web-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: 48%;
+  min-width: 400px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ongoing {
+  background-color: #e6f4ea;
+  color: #1e8e3e;
+}
+.completed {
+  background-color: #f1f3f4;
+  color: #5f6368;
+}
+
+.arrow-circle {
+  width: 35px;
+  height: 35px;
+  background-color: #e8f0fe;
+  color: #1967d2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 28px;
+  margin: 10px 0;
+}
+.divider {
+  border: 0;
+  border-top: 1px solid #000000;
+  margin: 20px 0;
+}
+.card-info {
+  font-size: 15px;
+  color: #70757a;
+}
+.info-value {
+  color: #202124;
+  font-weight: 700;
+  margin-left: 5px;
+}
+.margin-left {
+  margin-left: 20px;
+}

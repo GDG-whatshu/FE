@@ -1,0 +1,27 @@
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  gap: 8px;
+}
+.login-btn {
+  color: #0091ff;
+  font-weight: 600;
+  cursor: pointer;
+}

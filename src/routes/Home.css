@@ -1,0 +1,38 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+.blue {
+  color: #0091ff;
+}
+.hero p {
+  color: #5f6368;
+  font-size: 17px;
+}
+
+.action-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px 0;
+}
+.create-btn {
+  background-color: #0091ff;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 145, 255, 0.3);
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
