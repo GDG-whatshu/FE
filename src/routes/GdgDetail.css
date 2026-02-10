@@ -1,0 +1,251 @@
+.detail-container {
+  padding: 40px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: "Pretendard", sans-serif;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.running-badge {
+  background: #e8f5e9;
+  color: #27c485;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.organizer-name {
+  color: #888;
+  font-size: 14px;
+}
+
+.dashboard-title {
+  margin-top: 10px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+}
+
+.add-session-btn {
+  background: #0085ff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.add-session-btn:hover {
+  background: #0071da;
+}
+
+/* 진행된 세션 카드 리스트 (가로 스크롤) */
+.session-scroll-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.session-scroll-list::-webkit-scrollbar {
+  display: none;
+}
+
+.session-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.session-card {
+  min-width: 300px;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.session-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.session-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.type-tag {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.type-tag.quarterly {
+  background: #f3e5f5;
+  color: #9c27b0;
+}
+
+.type-tag.weekly {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.date-text {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.session-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.progress-bg {
+  background: #eee;
+  height: 6px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: #27c485;
+  height: 100%;
+  transition: width 0.5s ease-out;
+}
+
+.rate-number {
+  font-size: 12px;
+  color: #aaa;
+  text-align: right;
+  display: block;
+}
+
+.content-section {
+  margin-top: 40px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.total-count {
+  font-size: 14px;
+  color: #888;
+}
+
+.table-wrapper {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow-x: auto;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th {
+  padding: 15px;
+  text-align: left;
+  color: #888;
+  font-weight: 500;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 14px;
+}
+
+.attendance-table td {
+  padding: 20px 15px;
+  border-bottom: 1px solid #f5f5f5;
+  vertical-align: middle;
+}
+
+.member-name {
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.member-name .role {
+  font-weight: normal;
+  font-size: 12px;
+  color: #bbb;
+}
+
+.member-rate {
+  color: #0085ff;
+  font-weight: 700;
+}
+
+.check-circle {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.present {
+  background: #e8f5e9;
+  color: #27c485;
+}
+
+.absent {
+  background: #ffebee;
+  color: #ff5252;
+}
+
+/* 멤버 추가하기 버튼 스타일 */
+.add-member-footer-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: #fcfcfc;
+  border: 1px dashed #ddd;
+  border-radius: 12px;
+  color: #999;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+.add-member-footer-btn:hover {
+  background-color: #f1f3f5;
+  color: #555;
+  border-color: #bbb;
+}
+
+.session-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.session-card-link:hover {
+  text-decoration: none;
+}

@@ -13,12 +13,19 @@ function Home() {
       </header>
 
       <div className="action-bar">
-        <button className="create-btn">+ 새로운 기수 생성</button>
+        <button className="create-btn"> + 새로운 기수 생성</button>
       </div>
 
       <div className="card-grid">
-        <Web title="GDG 7기" organizer="강대현" members="42" status="진행중" />
         <Web
+          id={1}
+          title="GDG 7기"
+          organizer="강대현"
+          members="42"
+          status="진행중"
+        />
+        <Web
+          id={2}
           title="GDG 6기"
           organizer="김경록"
           members="38"
