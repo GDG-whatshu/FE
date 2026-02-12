@@ -3,7 +3,7 @@ import "./Web.css";
 import { Link } from "react-router-dom";
 
 // id 중복을 제거한 최종본
-function Web({ id, title, organizer, members, status }) {
+function Web({ id, organizer, members, status }) {
   return (
     <Link to={`/gdg/${id}`} className="card-link">
       <div className="web-card">
@@ -15,7 +15,7 @@ function Web({ id, title, organizer, members, status }) {
           </span>
           <div className="arrow-circle">→</div>
         </div>
-        <h2 className="card-title">{title}</h2>
+        <h2 className="card-title">GDG {id}기</h2>
         <hr className="divider" />
         <div className="card-info">
           <span className="info-label">오거나이저</span>

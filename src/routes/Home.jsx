@@ -1,8 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import Web from "../components/Web.jsx";
 import "./Home.css";
+import { getCohorts } from "../api/cohort.js";
 
 function Home() {
+  const [cohorts, setCohorts] = useState();
+
+  const handleCohorts = async () => {
+    const list = await getCohorts();
+    setCohorts(list);
+  };
+
   return (
     <main className="home-container">
       <header className="hero">
@@ -17,20 +25,9 @@ function Home() {
       </div>
 
       <div className="card-grid">
-        <Web
-          id={1}
-          title="GDG 7기"
-          organizer="강대현"
-          members="42"
-          status="진행중"
-        />
-        <Web
-          id={2}
-          title="GDG 6기"
-          organizer="김경록"
-          members="38"
-          status="수료 완료"
-        />
+        {cohorts?.map((item) => (
+          <Web id={item.cohortNo} organizer={item.organizer} />
+        ))}
       </div>
     </main>
   );
