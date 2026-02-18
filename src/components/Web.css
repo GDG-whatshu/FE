@@ -1,75 +1,66 @@
-.web-card {
-  background-color: white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  width: 48%;
-  min-width: 400px;
-}
-
-.card-top {
+.card-container {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.status-badge {
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.ongoing {
-  background-color: #e6f4ea;
-  color: #1e8e3e;
-}
-.completed {
-  background-color: #f1f3f4;
-  color: #5f6368;
-}
-
-.arrow-circle {
-  width: 35px;
-  height: 35px;
-  background-color: #e8f0fe;
-  color: #1967d2;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
+  gap: 20px;
+  padding: 20px;
   justify-content: center;
 }
 
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status-badge.running {
+  background-color: #e8f5e9;
+  color: #27c485;
+}
+
+.status-badge.completed {
+  background-color: #f1f3f5;
+  color: #868e96;
+}
+
 .card-title {
-  font-size: 28px;
-  margin: 10px 0;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 25px 0;
+  color: #111111;
+  /* 💡 제목 밑에 생기는 보라색 줄 제거 */
+  text-decoration: none;
 }
-.divider {
-  border: 0;
-  border-top: 1px solid #000000;
-  margin: 20px 0;
-}
+
 .card-info {
+  border-top: 1px solid #eeeeee;
+  padding-top: 20px;
+  display: flex;
+  gap: 15px;
   font-size: 15px;
-  color: #70757a;
+  color: #666666;
 }
-.info-value {
-  color: #202124;
-  font-weight: 700;
+
+.card-info b {
+  color: #222222;
   margin-left: 5px;
 }
-.margin-left {
-  margin-left: 20px;
-}
 
-/* Link 컴포넌트로 생기는 기본 밑줄과 색상 변화 방지 */
+/* 💡 카드를 감싸는 Link 태그의 스타일 강제 초기화 */
 .card-link {
-  text-decoration: none; /* 밑줄 제거 */
-  color: inherit; /* 부모 요소의 글자색 그대로 사용 */
-  display: block; /* 카드가 영역 전체를 차지하도록 설정 */
-}
-
-/* 마우스 올렸을 때도 밑줄이 생기지 않게 설정 */
-.card-link:hover {
-  text-decoration: none;
+  text-decoration: none !important;
+  color: inherit !important;
 }

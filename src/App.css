@@ -6,3 +6,18 @@ body {
   background-color: #f5f7f9;
   font-family: -apple-system, sans-serif;
 }
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+
+  font-family: "Pretendard", sans-serif;
+  background-color: #fbfbfb;
+}

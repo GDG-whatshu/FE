@@ -1,0 +1,20 @@
+@import url("./Login.css");
+
+.navy-text {
+  color: #111b27;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.navy-btn {
+  background: #111b27;
+  color: white;
+  margin-top: 20px;
+}
+.gray-text {
+  color: #888;
+  font-weight: 500;
+  font-size: 13px;
+}
+.join-box {
+  max-width: 380px;
+}

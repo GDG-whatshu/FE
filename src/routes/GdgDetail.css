@@ -49,7 +49,6 @@
   background: #0071da;
 }
 
-/* 진행된 세션 카드 리스트 (가로 스크롤) */
 .session-scroll-list {
   display: flex;
   gap: 20px;
