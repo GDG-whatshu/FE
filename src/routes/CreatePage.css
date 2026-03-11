@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif !important;
+}
+
+.create-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  background-color: #f8f9fa;
+  padding: 15px;
+}
+
+.create-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.create-header {
+  margin-bottom: 25px;
+}
+
+.create-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #202124;
+  margin-bottom: 6px;
+}
+
+.create-subtitle {
+  color: #70757a;
+  font-size: 13px;
+}
+
+.input-section {
+  margin-bottom: 16px;
+}
+
+.input-label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #3c4043;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.generation-input-wrapper {
+  position: relative !important;
+  display: flex;
+  align-items: center;
+}
+
+.full-input,
+.date-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.full-input::-webkit-outer-spin-button,
+.full-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.full-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.full-input:focus,
+.date-input:focus {
+  border-color: #0091ff;
+}
+
+.unit-text {
+  position: absolute;
+  right: 14px;
+  font-size: 14px;
+  color: #535557;
+  pointer-events: none;
+}
+
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #f1f3f4;
+  color: #535557;
+}
+
+.submit-btn {
+  background-color: #0091ff;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #007bdd;
+}

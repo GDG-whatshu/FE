@@ -1,66 +1,107 @@
-.card-container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  justify-content: center;
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
 }
 
-.card {
-  background: #ffffff;
+.web-card {
+  background-color: #ffffff;
   border-radius: 20px;
-  padding: 30px;
-  width: 320px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+  padding: 24px; /* 크기를 약간 아담하게 조정 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f3f4;
   position: relative;
-  transition: transform 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.web-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8f0fe;
+  transform: translateY(-2px);
+}
+
+/* 상단 영역: 배지(좌) + 액션버튼들(우) */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 .status-badge {
-  padding: 6px 12px;
+  background-color: #e6f4ea;
+  color: #1e8e3e;
+  padding: 4px 12px;
   border-radius: 8px;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-.status-badge.running {
-  background-color: #e8f5e9;
-  color: #27c485;
+/* 삭제 버튼과 화살표를 감싸는 박스 */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* 버튼 사이 간격 */
 }
 
-.status-badge.completed {
-  background-color: #f1f3f5;
-  color: #868e96;
+/* 💡 삭제 버튼 (X) 스타일 */
+.delete-icon-btn {
+  background: none;
+  border: none;
+  color: #dadce0;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
 }
 
+.delete-icon-btn:hover {
+  color: #ea4335; /* 구글 레드 색상 */
+}
+
+.arrow-circle {
+  width: 32px;
+  height: 32px;
+  background-color: #e8f0fe;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1a73e8;
+  font-size: 14px;
+}
+
+/* 제목 */
 .card-title {
-  font-size: 32px;
-  font-weight: 800;
-  margin: 25px 0;
-  color: #111111;
-  /* 💡 제목 밑에 생기는 보라색 줄 제거 */
-  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #202124;
 }
 
+.divider {
+  border: 0;
+  border-top: 1px solid #f1f3f4;
+  margin-bottom: 16px;
+}
+
+/* 하단 정보 */
 .card-info {
-  border-top: 1px solid #eeeeee;
-  padding-top: 20px;
   display: flex;
   gap: 15px;
-  font-size: 15px;
-  color: #666666;
+  font-size: 14px;
+  color: #5f6368;
 }
 
-.card-info b {
-  color: #222222;
-  margin-left: 5px;
+.info-label {
+  color: #80868b;
+  margin-right: 4px;
 }
-
-/* 💡 카드를 감싸는 Link 태그의 스타일 강제 초기화 */
-.card-link {
-  text-decoration: none !important;
-  color: inherit !important;
+.info-value {
+  color: #202124;
+  font-weight: 600;
 }

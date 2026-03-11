@@ -1,42 +1,21 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "./GdgDetail.css";
 
-function GdgDetail() {
+function GdgDetail({ sessions, removeSession }) {
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const sessions = [
-    {
-      id: 1,
-      type: "Quarterly",
-      date: "2024-03-02",
-      title: "OT & 아이스브레이킹",
-      attended: 9.5,
-      total: 10,
-    },
-    {
-      id: 2,
-      type: "GTL Weekly",
-      date: "2024-03-09",
-      title: "Git/Github 협업 특강",
-      attended: 8.8,
-      total: 10,
-    },
-    {
-      id: 3,
-      type: "GTL Weekly",
-      date: "2024-03-16",
-      title: "FE/BE 파트별 스터디",
-      attended: 9.2,
-      total: 10,
-    },
-  ];
+  const currentSessions = sessions.filter(
+    (s) => String(s.cohortId) === String(id),
+  );
 
-  const members = [
-    { name: "김코딩", role: "Member", attendance: [true, true, false] },
-    { name: "이자바", role: "Member", attendance: [true, false, true] },
-    { name: "박리액", role: "Member", attendance: [true, true, true] },
-  ];
+  // 삭제 핸들러
+  const handleDeleteSession = (e, sessionTitle) => {
+    e.preventDefault(); // 카드 클릭 시 상세 페이지 이동 방지
+    e.stopPropagation(); // 이벤트 버블링 방지
+    removeSession(sessionTitle, id);
+  };
 
   return (
     <div className="detail-container">
@@ -44,105 +23,69 @@ function GdgDetail() {
         <div className="header-left">
           <div className="status-row">
             <span className="running-badge">RUNNING</span>
-            <span className="organizer-name">Organizer 강대현</span>
+            <span className="organizer-name">Organizer 강대헌</span>
           </div>
           <h1 className="dashboard-title">GDG {id}기 Dashboard</h1>
         </div>
-        <button className="add-session-btn">+ 세션 생성하기</button>
+        <button
+          className="add-session-btn"
+          onClick={() => navigate(`/create-session/${id}`)}
+        >
+          + 세션 생성하기
+        </button>
       </header>
 
+      {/* 💡 content-section 클래스가 제목과 카드 사이의 간격을 담당합니다 */}
       <section className="content-section">
         <h3>📅 진행된 세션</h3>
         <div className="session-scroll-list">
-          {sessions.map((s) => {
-            const rate = Math.round((s.attended / s.total) * 100);
-            return (
-              <Link
-                to={`/session/${s.id}`}
-                key={s.id}
-                className="session-card-link"
-              >
-                <div className="session-card">
-                  <div className="session-card-top">
-                    <span
-                      className={`type-tag ${s.type.toLowerCase().includes("weekly") ? "weekly" : "quarterly"}`}
-                    >
-                      {s.type}
-                    </span>
-                    <span className="date-text">{s.date}</span>
-                  </div>
-                  <h4 className="session-card-title">{s.title}</h4>
-                  <div className="progress-container">
-                    <div className="progress-bg">
-                      <div
-                        className="progress-fill"
-                        style={{ width: `${rate}%` }}
-                      ></div>
+          {currentSessions.length > 0 ? (
+            currentSessions.map((s, idx) => (
+              <div key={idx} className="session-card-wrapper">
+                <Link to={`/session/${idx}`} className="session-card-link">
+                  <div className="session-card">
+                    <div className="session-card-top">
+                      {/* 좌측: 배지 */}
+                      <span
+                        className={`type-tag ${s.type?.toLowerCase().includes("weekly") ? "weekly" : "quarterly"}`}
+                      >
+                        {s.type}
+                      </span>
+
+                      {/* 💡 우측: 삭제버튼과 날짜를 하나로 묶음 (CSS에서 정렬하기 위함) */}
+                      <div className="session-actions">
+                        <button
+                          className="session-delete-btn"
+                          onClick={(e) => handleDeleteSession(e, s.title)}
+                        >
+                          ✕
+                        </button>
+                        <span className="date-text">{s.date}</span>
+                      </div>
                     </div>
-                    <span className="rate-number">출석률 {rate}%</span>
+
+                    <h4 className="session-card-title">{s.title}</h4>
+
+                    <div className="progress-container">
+                      <div className="progress-bg">
+                        <div
+                          className="progress-fill"
+                          style={{ width: `90%` }}
+                        ></div>
+                      </div>
+                      <span className="rate-number">출석률 90%</span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p className="no-data-msg">아직 생성된 세션이 없습니다.</p>
+          )}
         </div>
       </section>
 
-      <section className="content-section">
-        <div className="table-header">
-          <h3>👥 전체 멤버 출석부</h3>
-          <span className="total-count">총 {members.length}명</span>
-        </div>
-        <div className="table-wrapper">
-          <table className="attendance-table">
-            <thead>
-              <tr>
-                <th>이름</th>
-                <th>출석률</th>
-                {sessions.map((s) => (
-                  <th key={s.id}>
-                    <div className="table-date">{s.date.slice(5)}</div>
-                    <div className="table-session-type">
-                      {s.type.toUpperCase()}
-                    </div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {members.map((m, idx) => {
-                const attendedCount = m.attendance.filter((a) => a).length;
-                const totalRate = Math.round(
-                  (attendedCount / sessions.length) * 100,
-                );
-                return (
-                  <tr key={idx}>
-                    <td className="member-name">
-                      {m.name} <br /> <span className="role">{m.role}</span>
-                    </td>
-                    <td className="member-rate">{totalRate}%</td>
-                    {m.attendance.map((isPresent, i) => (
-                      <td key={i}>
-                        <span
-                          className={`check-circle ${isPresent ? "present" : "absent"}`}
-                        >
-                          {isPresent ? "O" : "X"}
-                        </span>
-                      </td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          <button
-            className="add-member-footer-btn"
-            onClick={() => alert("멤버 추가 기능을 구현해 보세요!")}
-          >
-            + 멤버 추가하기
-          </button>
-        </div>
-      </section>
+      {/* 출석부 영역 등 추가 영역... */}
     </div>
   );
 }
