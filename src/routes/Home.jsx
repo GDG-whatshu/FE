@@ -14,11 +14,14 @@ function Home({ cohorts, removeCohort }) {
           참여하고 계신 기수를 선택하여 출석 현황을 확인하세요.
         </p>
       </header>
+
       <div className="action-bar">
-        <Link to="/create">
+        {/* 🚀 주소를 /create-cohort로 변경하여 CreatePage가 뜨게 합니다 */}
+        <Link to="/create-cohort">
           <button className="create-btn"> + 새로운 기수 생성</button>
         </Link>
       </div>
+
       <div className="card-grid">
         {cohorts && cohorts.length > 0 ? (
           cohorts.map((item, index) => (

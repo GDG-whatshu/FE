@@ -19,21 +19,36 @@ function Join() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // 🚀 1. 버튼 클릭 즉시 콘솔에 입력값 출력 (아이디, 비밀번호)
+    console.log("--- [회원가입 시도 데이터] ---");
+    console.log("아이디(이메일):", form.email);
+    console.log("비밀번호:", form.password);
+    console.log("---------------------------");
+
+    // 2. 비밀번호 일치 확인
     if (form.password !== form.passwordCheck) {
-      console.error("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
     }
 
     try {
+      // 3. 서버에 회원가입 요청 (api/auth.js의 postSignup 실행)
       const data = await postSignup({
         email: form.email,
         password: form.password,
         role: "MEMBER",
       });
-      console.log(data);
-      navigate("/login");
+
+      console.log("✅ 서버 통신 성공:", data);
+      alert("회원가입이 완료되었습니다!");
     } catch (error) {
-      console.error(error);
+      // 4. 서버가 꺼져있거나 에러가 나면 이리로 들어옴
+      console.error("❌ 서버 통신 에러 발생:", error);
+      // 에러가 나더라도 테스트를 위해 알림을 띄우고 넘어가게 설정
+      alert("서버 연결에 실패했지만, 로그인 페이지로 강제 이동합니다.");
+    } finally {
+      // 🚀 5. [핵심] 성공하든 실패하든 무조건 로그인 페이지로 이동!
+      navigate("/login");
     }
   };
 
@@ -42,6 +57,7 @@ function Join() {
       <div className="auth-box join-box">
         <h1 className="auth-title navy-text">관리자 회원가입</h1>
         <form className="auth-form" onSubmit={handleSubmit}>
+          {/* 이메일 입력 섹션 */}
           <div className="input-group">
             <label>이메일</label>
             <input
@@ -53,6 +69,8 @@ function Join() {
               required
             />
           </div>
+
+          {/* 비밀번호 입력 섹션 */}
           <div className="input-group">
             <label>비밀번호</label>
             <input
@@ -64,6 +82,8 @@ function Join() {
               required
             />
           </div>
+
+          {/* 비밀번호 확인 입력 섹션 */}
           <div className="input-group">
             <label>비밀번호 확인</label>
             <input
@@ -75,10 +95,14 @@ function Join() {
               required
             />
           </div>
+
+          {/* 가입하기 버튼 */}
           <button type="submit" className="auth-btn navy-btn">
             가입하기
           </button>
         </form>
+
+        {/* 하단 링크 */}
         <div className="auth-footer">
           <Link to="/login" className="link-no-underline gray-text">
             로그인으로 돌아가기
@@ -88,4 +112,5 @@ function Join() {
     </div>
   );
 }
+
 export default Join;
